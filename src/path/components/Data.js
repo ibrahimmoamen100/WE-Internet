@@ -20,7 +20,7 @@ function Data() {
         <div className="kuota_data">
           <span className="current_bunch">باقتك الحالية</span>
           <h5 className="kuota_details">
-            سرعة سوبر 2 - Up To 30Mb (غير محدودة)
+            سرعة سوبر 2 - Up To 70Mb (غير محدودة)
           </h5>
           <div className="kuota_btns">
             <Link
