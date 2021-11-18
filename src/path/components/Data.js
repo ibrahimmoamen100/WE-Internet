@@ -19,13 +19,11 @@ function Data() {
         </div>
         <div className="kuota_data">
           <span className="current_bunch">باقتك الحالية</span>
-          <h5 className="kuota_details">
-            سرعة سوبر 2 - Up To 70Mb (غير محدودة)
-          </h5>
+          <h4 className="kuota_details">سرعة سوبر 2 -(غير محدودة)</h4>
           <div className="kuota_btns">
             <Link
               to=""
-              className="btn btn-primary btn-sm change_btn mt-3 px-3 py-1"
+              className="btn btn-primary btn-sm change_btn mt-3 px-4 py-1"
             >
               تغيير
             </Link>

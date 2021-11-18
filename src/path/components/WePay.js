@@ -19,7 +19,7 @@ function WePay() {
           وبسيطة من غير ماتروح الفرع، لتمكن عملائها من التحكم في تعاملاتهم
           الماليه
         </p>
-        <Link to="" className="pb-1 fs-6 wepay_read_more">
+        <Link to="/We-Pay" className="pb-1 fs-6 wepay_read_more">
           اعرف المزيد
         </Link>
       </div>

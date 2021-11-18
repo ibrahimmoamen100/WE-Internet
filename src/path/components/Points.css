@@ -95,6 +95,36 @@
   font-weight: bold;
 }
 
+.svg_circle {
+  /* height: 100%;
+  width: 100%; */
+  display: flex;
+  background-image: linear(
+    to right,
+    var(--primaryColor),
+    var(--secondaryColor)
+  );
+  /* background-color: red; */
+}
+.svg_circle > svg {
+  height: 300px;
+  width: 100%;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+#rect1 {
+  fill: url(#Gradient1);
+}
+.stop1 {
+  stop-color: red;
+}
+.stop2 {
+  stop-color: black;
+  stop-opacity: 0;
+}
+.stop3 {
+  stop-color: blue;
+}
 .points_left {
   display: flex;
   justify-content: center;

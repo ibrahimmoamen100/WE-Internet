@@ -105,6 +105,7 @@
 }
 .kuota_details {
   color: var(--primaryColor);
+  font-size: 1.4em;
 }
 .kuota_btns {
   display: flex;
