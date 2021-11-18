@@ -18,6 +18,7 @@
   top: 0.3em;
   font-size: 2em;
 }
+
 .subscribe > ul {
   display: flex;
   flex-direction: column;
@@ -28,7 +29,7 @@
 .subscribe > ul > li {
   text-align: right;
   position: relative;
-  padding: 0 1em;
+  padding: 0.5em 1em;
   line-height: 2em;
 }
 .subscribe > ul > li::after {
@@ -41,4 +42,9 @@
   background-color: #000;
   border-radius: 50%;
   margin-left: 50px;
+}
+@media (max-width: 768px) {
+  .subscribe > ul > li::after {
+    top: 1.5em;
+  }
 }

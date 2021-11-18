@@ -11,7 +11,6 @@ function Collapsing({
   const [height, setHeight] = useState(true);
   const handleClick = () => {
     setHeight((el) => !el);
-    console.log(height);
     if (height) {
       myUl.current.style.display = "none";
       myUl.current.style.height = "0";
