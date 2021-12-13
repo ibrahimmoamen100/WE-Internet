@@ -121,31 +121,31 @@ function Navbar() {
             </div>
 
             <div className="nav_links">
-              <div className="nav_link" id="link_one">
+              <div className="nav_link">
                 <Link to="/" className="active">
                   الرئيسيه
                 </Link>
+              </div>
+              <div className="nav_link" id="link_one">
+                <Link
+                  to=""
+                  onClick={() => {
+                    setTitle("خدمات الرصيد");
+                  }}
+                >
+                  خدمات الرصيد
+                </Link>
                 <div className="nav_dropdown" id="drop_one">
-                  <Link to="/">نظرة عامه علي الحساب</Link>
+                  <Link to="/"> تفاصيل الرصيد</Link>
                   <Link
                     onClick={() => {
                       setTitle("إداره الحساب");
                     }}
                     to="/"
                   >
-                    إداره الحساب
+                    إعاده الشحن و الدفع
                   </Link>
                 </div>
-              </div>
-              <div className="nav_link">
-                <Link
-                  to=""
-                  onClick={() => {
-                    setTitle("الاستهلاك");
-                  }}
-                >
-                  الاستهلاك
-                </Link>
               </div>
               <div className="nav_link" id="link_two">
                 <Link to="">الخطط و الخدمات</Link>
@@ -170,13 +170,12 @@ function Navbar() {
                     </Link>
                   </div>
                   <div className="second_plans_dropdown">
-                    <Link to="/">نظرة عامه </Link>
+                    <Link to="/Overview">نظرة عامه </Link>
                     <Link to="/">تغيير الخطة</Link>
-                    <Link to="/"> الباقات الإضافية</Link>
                   </div>
                   <div className="theard_plans_dropdown">
                     <Link to="/">
-                      <h4>تفعيل الخطوط</h4>
+                      <h5>تفعيل الخطوط</h5>
                       <span>يمكنك تفعيل الخطوط من هنا</span>
                     </Link>
                   </div>

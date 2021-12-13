@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./Collapsing.css";
+import "../../index.css";
 function Collapsing({
   title,
   information1,
@@ -8,7 +9,7 @@ function Collapsing({
   information4,
 }) {
   const myUl = useRef(null);
-  const [height, setHeight] = useState(true);
+  const [height, setHeight] = useState(false);
   const handleClick = () => {
     setHeight((el) => !el);
     if (height) {

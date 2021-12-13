@@ -34,7 +34,7 @@
   max-width: 1200px;
   /* background-color: red; */
   margin: auto;
-  padding: 0 2em;
+  /* padding: 0 2em; */
 }
 @media all and (max-width: 992px) {
   .navbar_container {
@@ -207,7 +207,7 @@
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  width: 450px;
+  width: 400px;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -247,9 +247,12 @@
   flex-direction: row;
   justify-content: flex-end;
   flex: 1;
+  padding: 1em;
+  gap: 0em;
+
   background-image: linear-gradient(
-    to right,
-    var(--primaryColor) 20%,
+    100deg,
+    var(--primaryColor) 40%,
     var(--nextColor)
   );
 }
@@ -258,7 +261,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  padding: 0.5em;
+  /* padding: 0.5em; */
 }
 
 .nav_dropdown .first_plans_dropdown > a,
@@ -275,6 +278,9 @@
 .nav_dropdown > .theard_plans_dropdown > a {
   color: #fff;
   text-decoration: none;
+}
+.nav_dropdown > .theard_plans_dropdown > a > span {
+  font-size: 0.8em;
 }
 
 .nav_dropdown .first_plans_dropdown > a:hover,

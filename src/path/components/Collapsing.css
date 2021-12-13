@@ -6,7 +6,8 @@
   position: relative;
   margin-right: 2em;
   cursor: pointer;
-  padding: 0;
+  padding: 0.4em;
+  color: var(--primaryColor);
 }
 .subscribe > h6::before {
   content: "";
@@ -15,7 +16,7 @@
   height: 0.05em;
   background-color: #333;
   right: -0.6em;
-  top: 0.3em;
+  top: 0.6em;
   font-size: 2em;
 }
 
@@ -24,7 +25,9 @@
   flex-direction: column;
   list-style: none;
   padding: 1em 1.2em;
-  /* transition: 0.3s ease-out; */
+  height: 0;
+  display: none;
+  /* transition: height 0.3s ease-in-out; */
 }
 .subscribe > ul > li {
   text-align: right;

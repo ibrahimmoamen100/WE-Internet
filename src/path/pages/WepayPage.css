@@ -7,6 +7,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   /* overflow-x: hidden; */
 }
@@ -23,8 +24,13 @@
   /* flex-wrap: wrap; */
   margin: auto;
   position: relative;
+  min-height: 100vh;
 }
-
+@media (max-width: 1200px) {
+  .WepayPage_container {
+    min-height: auto;
+  }
+}
 .WepayPage_img_container {
   width: 100%;
   left: 0;
@@ -54,7 +60,16 @@
   padding: 1em 0;
   text-align: right;
 }
-
+@media (max-width: 1200px) {
+  .wepay_content-container {
+    max-width: 95%;
+  }
+}
+@media (max-width: 994px) {
+  .wepay_content-container {
+    max-width: 96.5%;
+  }
+}
 .wepay_content-container > h5 {
   position: relative;
 }

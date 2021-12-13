@@ -15,7 +15,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
-  padding: 0 2em;
 }
 @media (max-width: 992px) {
   .container_navbar {

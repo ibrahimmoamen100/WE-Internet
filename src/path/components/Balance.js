@@ -46,7 +46,7 @@ function Balance() {
         الرصيد الحالي
       </h2>
       <span className="balance_price text-white fs-3 " style={{ zIndex: "5" }}>
-        98.65{" "}
+        9999{" "}
         <span className="fs-5" style={{ zIndex: "5" }}>
           جنيه
         </span>
