@@ -6,6 +6,7 @@ import Services from "./path/pages/Services";
 import WepayPage from "./path/pages/WepayPage";
 import Additionalpage from "./path/pages/Additionalpage";
 import Overview from "./path/pages/Overview";
+import SignUp from "./path/pages/SignUp";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route path="Sign-up">
+            <SignUp />
           </Route>
           <Route path="/Services">
             <Services />

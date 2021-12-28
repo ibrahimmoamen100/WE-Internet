@@ -1,10 +1,17 @@
 import "./TopNavbar.css";
 import "../../index.css";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import { FaUserCircle, FaSearch, FaHome } from "react-icons/fa";
+import Modal from "./Modal";
 
 export default function TopNavbar() {
+  const [model, createModal] = useState(true);
+  const CloseModal = () => createModal(false);
+  const OpenModal = () => createModal(true);
+  let timeout;
+
   return (
     <div>
       <nav className="">
@@ -37,10 +44,12 @@ export default function TopNavbar() {
           }}
         >
           <div className="user_search ">
-            <Link to="" className="user_section pointer ">
+            <Link to="" className="user_section pointer " onClick={OpenModal}>
               <span className="phone_number text-white fs-6 ">0224536504</span>
               <FaUserCircle className="mx-3" />
             </Link>
+            {}
+
             <div className="search_container_border">
               <div className="search_section">
                 <input

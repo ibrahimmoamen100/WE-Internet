@@ -19,11 +19,12 @@ nav {
 @media (max-width: 992px) {
   .container_navbar {
     max-width: auto;
+    padding: 0 5em;
   }
 }
 
 .container_navbar > div {
-  padding: 0.4rem;
+  padding: 0.3rem;
 }
 .user_search {
   display: flex;
