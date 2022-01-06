@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallbacks } from "react";
 import Navbar from "../components/Navbar";
 import TopNavbar from "../components/TopNavbar";
+import { useHistory } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 import "./SignUp.css";
 import "../../index.css";
 import Footer from "../components/Footer";
 
 const SignUp = () => {
+  const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -19,7 +23,10 @@ const SignUp = () => {
       serviceNum.value.length === 10 &&
       servicePass.value.length > 6
     ) {
-      window.location.pathname = "/Home";
+      // window.location.pathname = "/Home";
+      // window.history.pushState("", "new page title", "/Home");
+      <Link to="/Home" />;
+      history.push("/Home");
     } else {
     }
   };
