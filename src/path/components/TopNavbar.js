@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { FaUserCircle, FaSearch, FaHome } from "react-icons/fa";
 import Modal from "./Modal";
 
-export default function TopNavbar() {
+export default function TopNavbar({ hide }) {
   const [model, createModal] = useState(true);
   const CloseModal = () => createModal(false);
   const OpenModal = () => createModal(true);
@@ -43,8 +43,17 @@ export default function TopNavbar() {
             }
           }}
         >
-          <div className="user_search ">
-            <Link to="" className="user_section pointer " onClick={OpenModal}>
+          <div className="link_home-titlebar">
+            <Link to="/Home" className="home_link ">
+              <span className="mx-2">الذهاب الى موقع المصرية للاتصالات</span>
+              <FaHome className="mx-1" />
+            </Link>
+          </div>
+          <div
+            className="user_search "
+            style={{ display: `${hide === "hidden" ? "none" : "flex"}` }}
+          >
+            <Link to="/" className="user_section pointer " onClick={OpenModal}>
               <span className="phone_number text-white fs-6 ">0224536504</span>
               <FaUserCircle className="mx-3" />
             </Link>
@@ -61,10 +70,6 @@ export default function TopNavbar() {
               </div>
             </div>
           </div>
-          <Link to="/" className="home_link ">
-            <span className="mx-2">الذهاب الى موقع المصرية للاتصالات</span>
-            <FaHome className="mx-1" />
-          </Link>
         </div>
       </nav>
     </div>

@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 import $ from "jquery";
 // window.$ = window.jQuery = require("jquery");
 
-function Navbar() {
-  // useEffect function
+const Navbar = ({ hide }) => {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   let bodyy = document.querySelector("body");
   let menuList = document.querySelector(".menu_list");
@@ -120,9 +119,12 @@ function Navbar() {
               <span className="theard_line"></span>
             </div>
 
-            <div className="nav_links">
+            <div
+              className="nav_links"
+              style={{ display: `${hide === "hidden" ? "none" : ""}` }}
+            >
               <div className="nav_link">
-                <Link to="/" className="active">
+                <Link to="/Home" className="active">
                   الرئيسيه
                 </Link>
               </div>
@@ -141,7 +143,7 @@ function Navbar() {
                     onClick={() => {
                       setTitle("إداره الحساب");
                     }}
-                    to="/"
+                    to="/Account"
                   >
                     إعاده الشحن و الدفع
                   </Link>
@@ -153,7 +155,7 @@ function Navbar() {
                   <div className="first_plans_dropdown">
                     <h6>خدمات الانترنت الارضي</h6>
                     <Link
-                      to="/"
+                      to="/UserName"
                       onClick={() => {
                         setTitle("اسم الامستخدم و كلمه المرور");
                       }}
@@ -207,6 +209,6 @@ function Navbar() {
       </div>
     </>
   );
-}
+};
 
 export default Navbar;
