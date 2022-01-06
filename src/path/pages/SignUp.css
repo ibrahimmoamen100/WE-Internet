@@ -4,14 +4,19 @@
 }
 
 .signup_box {
-  background: #fff;
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 80vh;
+}
+.signup_content {
+  max-width: 350px;
+  flex: 1;
+  background-color: #fff;
   padding: 2em 1.5em;
+  height: auto;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 8%);
   border-radius: 0.5em;
 }

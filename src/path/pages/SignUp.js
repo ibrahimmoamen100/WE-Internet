@@ -28,6 +28,7 @@ const SignUp = () => {
       <Link to="/Home" />;
       history.push("/Home");
     } else {
+      history.push("/");
     }
   };
 
@@ -53,48 +54,49 @@ const SignUp = () => {
     <div className="signup_container">
       <TopNavbar hide="hidden" />
       <Navbar hide="hidden" />
-      <div className="signup_box ">
-        <h3>تسجيل الدخول</h3>
-        <form action="" onSubmit={handleSubmit}>
-          <label htmlFor="exampleInputEmail1" className="form-label mb-0">
-            رقم الخدمة
-          </label>
-          <input
-            className="form-control mb-2 service-num"
-            onChange={handleNumChange}
-            placeholder="رقم الخدمة"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-          />
-          <div className="mb-2">
-            <a href="">نسيت كلمة السر؟</a>
-            <label
-              htmlFor="exampleInputPassword1"
-              className="form-label mb-0"
-              placeholder="رقم المرور"
-            >
-              رقم المرور
+      <div className="signup_box container">
+        <div className="signup_content">
+          <h3>تسجيل الدخول</h3>
+          <form action="" onSubmit={handleSubmit}>
+            <label htmlFor="exampleInputEmail1" className="form-label mb-0">
+              رقم الخدمة
             </label>
-          </div>
-          <input
-            type="password"
-            onChange={handlePassChange}
-            className="form-control mb-3 service-pass"
-            id="exampleInputPassword1"
-            placeholder="كلمة المرور"
-          />
+            <input
+              className="form-control mb-2 service-num"
+              onChange={handleNumChange}
+              placeholder="رقم الخدمة"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+            <div className="mb-2">
+              <a href="">نسيت كلمة السر؟</a>
+              <label
+                htmlFor="exampleInputPassword1"
+                className="form-label mb-0"
+                placeholder="رقم المرور"
+              >
+                رقم المرور
+              </label>
+            </div>
+            <input
+              type="password"
+              onChange={handlePassChange}
+              className="form-control mb-3 service-pass"
+              id="exampleInputPassword1"
+              placeholder="كلمة المرور"
+            />
+            <button className="btn btn-primary btn-sm" type="submit">
+              دخول
+            </button>
+          </form>
+          <hr />
           <button className="btn btn-primary btn-sm" type="submit">
-            دخول
+            تسجيل
           </button>
-        </form>
-        <hr />
-        <button className="btn btn-primary btn-sm" type="submit">
-          تسجيل
-        </button>
+        </div>
       </div>
-      <div className="footer">
-        <Footer />
-      </div>
+
+      <Footer />
     </div>
   );
 };
