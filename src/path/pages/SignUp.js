@@ -7,17 +7,21 @@ import { Link } from "react-router-dom";
 import "./SignUp.css";
 import "../../index.css";
 import Footer from "../components/Footer";
+import { connect } from "react-redux";
+import addData from "../../reducers/actions";
 
-const SignUp = () => {
+// start components
+const SignUp = (props) => {
+  console.log(props);
   const history = useHistory();
+  const [serviceNumber, setNumber] = useState(0);
+  const [name, setName] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    console.log(form);
     const serviceNum = form.querySelector(".service-num");
-    console.log(serviceNum.value.length);
     const servicePass = form.querySelector(".service-pass");
-    console.log(servicePass.value.length > 0);
+
     if (
       serviceNum.value.startsWith("022") &&
       serviceNum.value.length === 10 &&
@@ -32,15 +36,17 @@ const SignUp = () => {
 
   const handlePassChange = (e) => {
     const inputPass = e.target;
-    if (inputPass.value.length < 6) {
+    setName(e.target.value);
+    if (inputPass.value.length < 5) {
       inputPass.style.border = "1px solid red";
     } else {
       inputPass.style.border = "1px solid green";
     }
   };
-
   const handleNumChange = (e) => {
     const inputNum = e.target;
+    setNumber(e.target.value);
+
     if (inputNum.value.startsWith("022") && inputNum.value.length === 10) {
       inputNum.style.border = "1px solid green";
     } else {
@@ -55,7 +61,7 @@ const SignUp = () => {
       <div className="signup_box container">
         <div className="signup_content">
           <h3>تسجيل الدخول</h3>
-          <form action="" onSubmit={handleSubmit}>
+          <form action="" onSubmit={handleSubmit} onClick={props.handleClick}>
             <label htmlFor="exampleInputEmail1" className="form-label mb-0">
               رقم الخدمة
             </label>
@@ -66,31 +72,24 @@ const SignUp = () => {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
-            <div className="mb-2">
-              <a href="">نسيت كلمة السر؟</a>
-              <label
-                htmlFor="exampleInputPassword1"
-                className="form-label mb-0"
-                placeholder="رقم المرور"
-              >
-                رقم المرور
-              </label>
-            </div>
+            <label id="exampleInputPassword1" className="form-label mb-0">
+              اللقب | الأسم
+            </label>
             <input
-              type="password"
+              type="text"
               onChange={handlePassChange}
               className="form-control mb-3 service-pass"
               id="exampleInputPassword1"
-              placeholder="كلمة المرور"
+              placeholder="الاسم ثلاثي "
             />
-            <button className="btn btn-primary btn-sm" type="submit">
+            <button
+              className="btn btn-primary btn-sm"
+              type="submit"
+              onClick={() => props.addData(serviceNumber, name)}
+            >
               دخول
             </button>
           </form>
-          <hr />
-          <button className="btn btn-primary btn-sm" type="submit">
-            تسجيل
-          </button>
         </div>
         <p>
           ادخل اي رقم بشرط ان يبدا ب 022 ولا يقل عن 10 ارقام وكلمه السر لا تقل
@@ -103,4 +102,11 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default connect(
+  (state) => {
+    return {
+      content: state,
+    };
+  },
+  { addData }
+)(SignUp);

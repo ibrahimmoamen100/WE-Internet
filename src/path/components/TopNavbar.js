@@ -2,11 +2,13 @@ import "./TopNavbar.css";
 import "../../index.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import addData from "../../reducers/actions";
 
 import { FaUserCircle, FaSearch, FaHome } from "react-icons/fa";
 import Modal from "./Modal";
 
-export default function TopNavbar({ hide }) {
+function TopNavbar(props) {
   const [model, createModal] = useState(true);
   const CloseModal = () => createModal(false);
   const OpenModal = () => createModal(true);
@@ -51,10 +53,12 @@ export default function TopNavbar({ hide }) {
           </div>
           <div
             className="user_search "
-            style={{ display: `${hide === "hidden" ? "none" : "flex"}` }}
+            style={{ display: `${props.hide === "hidden" ? "none" : "flex"}` }}
           >
             <Link to="/" className="user_section pointer " onClick={OpenModal}>
-              <span className="phone_number text-white fs-6 ">0224536504</span>
+              <span className="phone_number text-white fs-6 ">
+                {props.content.num}
+              </span>
               <FaUserCircle className="mx-3" />
             </Link>
             {}
@@ -75,3 +79,8 @@ export default function TopNavbar({ hide }) {
     </div>
   );
 }
+export default connect((state) => {
+  return {
+    content: state,
+  };
+}, addData)(TopNavbar);

@@ -100,9 +100,9 @@ const Navbar = ({ hide }) => {
         <div className="menu_list">
           <div className="menu_list_container">
             <Link to="/">الرئيسية</Link>
-            <Link to="/">الاستهلاك</Link>
-            <Link to="/">الخطط والخدمات</Link>
-            <Link to="/">عروض وايضافات</Link>
+            <Link to="/Home">الاستهلاك</Link>
+            <Link to="/Home">الخطط والخدمات</Link>
+            <Link to="/Additional">عروض وايضافات</Link>
             <Link to="/We-Pay"> WE Pay</Link>
           </div>
         </div>
@@ -110,7 +110,7 @@ const Navbar = ({ hide }) => {
           <div className="navbar_container">
             {/* logo */}
 
-            <Link to="" className="logo_navbar">
+            <Link to="/" className="logo_navbar">
               <img src={logo} className="p-3" alt="" />
             </Link>
             <div className="menu_icons">
@@ -138,7 +138,7 @@ const Navbar = ({ hide }) => {
                   خدمات الرصيد
                 </Link>
                 <div className="nav_dropdown" id="drop_one">
-                  <Link to="/"> تفاصيل الرصيد</Link>
+                  <Link to="/Home"> تفاصيل الرصيد</Link>
                   <Link
                     onClick={() => {
                       setTitle("إداره الحساب");
@@ -150,7 +150,7 @@ const Navbar = ({ hide }) => {
                 </div>
               </div>
               <div className="nav_link" id="link_two">
-                <Link to="">الخطط و الخدمات</Link>
+                <Link to="/Home">الخطط و الخدمات</Link>
                 <div className="nav_dropdown" id="drop_two">
                   <div className="first_plans_dropdown">
                     <h6>خدمات الانترنت الارضي</h6>
