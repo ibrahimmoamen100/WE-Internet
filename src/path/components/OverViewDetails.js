@@ -16,6 +16,9 @@ function OverViewDetails(props) {
   );
 }
 
-export default connect((state) => {
-  return { content: state };
-})(OverViewDetails);
+export default connect(
+  (state) => {
+    return { content: state };
+  },
+  { addData }
+)(OverViewDetails);
