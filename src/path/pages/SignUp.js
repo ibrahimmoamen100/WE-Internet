@@ -12,10 +12,10 @@ import addData from "../../reducers/actions";
 
 // start components
 const SignUp = (props) => {
-  console.log(props);
   const history = useHistory();
   const [serviceNumber, setNumber] = useState(0);
-  const [name, setName] = useState("");
+  const [name, setName] = useState("لا يوجد");
+  const [balance, setBalance] = useState(0);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -53,6 +53,16 @@ const SignUp = (props) => {
       inputNum.style.border = "1px solid red";
     }
   };
+  const handleBalanceChange = (e) => {
+    const inputBalance = e.target;
+    setBalance(inputBalance.value);
+
+    if (inputBalance.value.length >= 1) {
+      inputBalance.style.border = "1px solid green";
+    } else {
+      inputBalance.style.border = "1px solid red";
+    }
+  };
 
   return (
     <div className="signup_container">
@@ -82,10 +92,20 @@ const SignUp = (props) => {
               id="exampleInputPassword1"
               placeholder="الاسم ثلاثي "
             />
+            <label id="exampleInputBalance" className="form-label mb-0">
+              المبلغ
+            </label>
+            <input
+              type="number"
+              onChange={handleBalanceChange}
+              className="form-control mb-3 service-pass"
+              id="exampleInputBalance"
+              placeholder=" المبلغ "
+            />
             <button
               className="btn btn-primary btn-sm"
               type="submit"
-              onClick={() => props.addData(serviceNumber, name)}
+              onClick={() => props.addData(serviceNumber, name, balance)}
             >
               دخول
             </button>

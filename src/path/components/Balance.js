@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import "../../index.css";
 import bg from "../../img/prepaid.png";
+import { connect } from "react-redux";
+import addData from "../../reducers/actions";
 
 let BalanceContent = styled.div`
   display: flex;
@@ -22,7 +24,9 @@ let BalanceContent = styled.div`
     padding: 1em 0.5em;
   }
 `;
-function Balance() {
+function Balance(props) {
+  console.log(props);
+
   return (
     <BalanceContent className="balance_content px-5-sm py-4-sm">
       <img
@@ -46,8 +50,10 @@ function Balance() {
         الرصيد الحالي
       </h2>
       <span className="balance_price text-white fs-3 " style={{ zIndex: "5" }}>
-        210.75{" "}
+        {/* 210.75 */}
+        {props.content.balance}
         <span className="fs-5" style={{ zIndex: "5" }}>
+          {"    "}
           جنيه
         </span>
       </span>
@@ -58,4 +64,11 @@ function Balance() {
   );
 }
 
-export default Balance;
+export default connect(
+  (state) => {
+    return {
+      content: state,
+    };
+  },
+  { addData }
+)(Balance);

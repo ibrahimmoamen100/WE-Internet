@@ -2,21 +2,32 @@ import React, { useEffect, useState } from "react";
 import "../../index.css";
 import "./Navbar.css";
 import logo from "../../img/TEArabic-Logo.png";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import $ from "jquery";
+import { connect } from "react-redux";
+import addData from "../../reducers/actions";
+
 // window.$ = window.jQuery = require("jquery");
 
-const Navbar = ({ hide }) => {
+const Navbar = (props) => {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   let bodyy = document.querySelector("body");
   let menuList = document.querySelector(".menu_list");
+  let history = useHistory();
 
   const [title, setTitle] = useState("نظره عامه علي الحساب");
 
   useEffect(() => {
     document.title = title;
   }, [title]);
-
+  useEffect(() => {
+    if (props.content.balance !== undefined) {
+      return props.content.balance;
+    } else {
+      <Link to="/" />;
+      history.push("/");
+    }
+  }, [props, history]);
   useEffect(() => {
     let menuIcon = document.querySelector(".menu_icons");
     let menuList = document.querySelector(".menu_list");
@@ -110,7 +121,7 @@ const Navbar = ({ hide }) => {
           <div className="navbar_container">
             {/* logo */}
 
-            <Link to="/" className="logo_navbar">
+            <Link to="/Home" className="logo_navbar">
               <img src={logo} className="p-3" alt="" />
             </Link>
             <div className="menu_icons">
@@ -121,7 +132,7 @@ const Navbar = ({ hide }) => {
 
             <div
               className="nav_links"
-              style={{ display: `${hide === "hidden" ? "none" : ""}` }}
+              style={{ display: `${props.hide === "hidden" ? "none" : ""}` }}
             >
               <div className="nav_link">
                 <Link to="/Home" className="active">
@@ -211,4 +222,9 @@ const Navbar = ({ hide }) => {
   );
 };
 
-export default Navbar;
+export default connect(
+  (state) => {
+    return { content: state };
+  },
+  { addData }
+)(Navbar);

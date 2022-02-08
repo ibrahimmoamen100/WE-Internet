@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import "./Data.css";
 import "../../index.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import addData from "../../reducers/actions";
 
 function Data(props) {
+  let histroy = useHistory();
   return (
     <div className="data_container">
       <h4> مرحبا, {props.content.name}</h4>
@@ -24,12 +25,12 @@ function Data(props) {
           <h4 className="kuota_details">سرعة سوبر 2 -(غير محدودة)</h4>
           <div className="kuota_btns">
             <Link
-              to=""
+              to="/Home"
               className="btn btn-primary btn-sm change_btn mt-3 px-4 py-1"
             >
               تغيير
             </Link>
-            <Link to="" className="details_link  mt-3">
+            <Link to="/Home" className="details_link  mt-3">
               تفاصيل
             </Link>
           </div>
