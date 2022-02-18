@@ -40,6 +40,11 @@
     justify-content: center;
   }
 }
+@media all and (max-width: 333px) {
+  .navbar_container {
+    justify-content: flex-end;
+  }
+}
 
 .logo_navbar {
   display: flex;

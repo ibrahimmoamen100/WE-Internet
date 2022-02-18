@@ -67,7 +67,7 @@ const SignUp = (props) => {
   return (
     <div className="signup_container">
       <TopNavbar hide="hidden" />
-      <Navbar hide="hidden" />
+      <Navbar hide="hidden" hideMenu="hidden" />
       <div className="signup_box container">
         <div className="signup_content">
           <h3>تسجيل الدخول</h3>

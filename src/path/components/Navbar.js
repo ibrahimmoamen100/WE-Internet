@@ -6,6 +6,7 @@ import { Link, useHistory } from "react-router-dom";
 import $ from "jquery";
 import { connect } from "react-redux";
 import addData from "../../reducers/actions";
+import { FaUserCircle, FaSearch, FaHome } from "react-icons/fa";
 
 // window.$ = window.jQuery = require("jquery");
 
@@ -16,6 +17,12 @@ const Navbar = (props) => {
   let history = useHistory();
 
   const [title, setTitle] = useState("نظره عامه علي الحساب");
+  const [size, setSize] = useState(0);
+  var w = window.innerWidth;
+
+  window.addEventListener("resize", () => {
+    setSize(w);
+  });
 
   useEffect(() => {
     document.title = title;
@@ -108,8 +115,20 @@ const Navbar = (props) => {
     <>
       <div className="black_screen"></div>
       <div className="entire_navbar_container">
-        <div className="menu_list">
+        <div
+          className="menu_list"
+          style={{
+            display: `${props.hideMenu === "hidden" ? "none" : "flex"}`,
+          }}
+        >
           <div className="menu_list_container">
+            <div className="user_account-container">
+              <div className="user_account-num-img">
+                <div className="user_account-num">0228545248</div>
+                <FaUserCircle />
+              </div>
+              <div className="user_account-option">تسجيل الخروج</div>
+            </div>
             <Link to="/">الرئيسية</Link>
             <Link to="/Home">الاستهلاك</Link>
             <Link to="/Home">الخطط والخدمات</Link>
@@ -124,7 +143,14 @@ const Navbar = (props) => {
             <Link to="/Home" className="logo_navbar">
               <img src={logo} className="p-3" alt="" />
             </Link>
-            <div className="menu_icons">
+            <div
+              className="menu_icons"
+              style={{
+                display: `${
+                  props.hideMenu === "hidden" || size >= 992 ? "none" : "flex"
+                }`,
+              }}
+            >
               <span className="first_line"></span>
               <span className="second_line"></span>
               <span className="theard_line"></span>
