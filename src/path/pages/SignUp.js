@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useCallbacks } from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import TopNavbar from "../components/TopNavbar";
-import { useHistory } from "react-router-dom";
 
-import { Link } from "react-router-dom";
-import "./SignUp.css";
-import "../../index.css";
-import Footer from "../components/Footer";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import "../../index.css";
 import addData from "../../reducers/actions";
+import Footer from "../components/Footer";
+import "./SignUp.css";
 
 // start components
 const SignUp = (props) => {
@@ -20,15 +20,12 @@ const SignUp = (props) => {
     e.preventDefault();
     const form = e.target;
     const serviceNum = form.querySelector(".service-num");
-    const servicePass = form.querySelector(".service-pass");
+    // const servicePass = form.querySelector(".service-pass");
 
-    if (
-      serviceNum.value.startsWith("022") &&
-      serviceNum.value.length === 10 &&
-      servicePass.value.length > 6
-    ) {
+    if (serviceNum.value.length >= 5) {
       <Link to="/Home" />;
       history.push("/Home");
+      props.addData(serviceNumber, name, balance);
     } else {
       history.push("/");
     }
@@ -47,7 +44,7 @@ const SignUp = (props) => {
     const inputNum = e.target;
     setNumber(e.target.value);
 
-    if (inputNum.value.startsWith("022") && inputNum.value.length === 10) {
+    if (inputNum.value.length >= 4) {
       inputNum.style.border = "1px solid green";
     } else {
       inputNum.style.border = "1px solid red";
@@ -71,11 +68,12 @@ const SignUp = (props) => {
       <div className="signup_box container">
         <div className="signup_content">
           <h3>تسجيل الدخول</h3>
-          <form action="" onSubmit={handleSubmit} onClick={props.handleClick}>
+          <form action="" onSubmit={handleSubmit}>
             <label htmlFor="exampleInputEmail1" className="form-label mb-0">
               رقم الخدمة
             </label>
             <input
+              type="number"
               className="form-control mb-2 service-num"
               onChange={handleNumChange}
               placeholder="رقم الخدمة"
@@ -111,10 +109,6 @@ const SignUp = (props) => {
             </button>
           </form>
         </div>
-        <p>
-          ادخل اي رقم بشرط ان يبدا ب 022 ولا يقل عن 10 ارقام وكلمه السر لا تقل
-          عن 6 ارقام حتي يفتح الموقع لك
-        </p>
       </div>
 
       <Footer />
